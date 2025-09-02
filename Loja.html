@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="estiloFD.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Fabrício</title>
+</head>
+
+<body>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('Fundo_definitico_grande.svg');/* Caminho da imagem */      
+      min-width: 252px; /*tela sem bugar*/    
+      overflow: auto;
+      background-size: cover
+
+    }
+    main {
+      flex: 1; /* garante que o conteúdo ocupe o espaço restante */
+    }
+
+    footer {
+      margin-top: auto; /* força o footer a ficar no final */
+}
+    
+
+    nav {
+      background-color: #ffc107;
+      display: flex;
+      align-items: center;
+      height: 90px;
+      padding: 0 10px;
+      justify-content: space-between;/* mantém logo e menu separados */
+      zoom: 75%;
+    }
+
+    nav img.logo {
+      height: 80px;
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin-left: 400px;/* centraliza links */    
+      flex: 1;/* ocupa largura disponível */
+    }
+
+    nav ul li a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+    
+
+    nav ul li a:hover {
+      color: #ffffff;
+    }
+
+    .btn-roxo {
+      background-color: #8000ff;
+      color: #fff;
+      border: none;
+    }
+
+    .btn-roxo:hover {
+      background-color: #a64dff; /* tom mais claro ao passar o mouse */
+     }
+
+    .botoes-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+      gap: 10px;
+    }
+
+    .botoes-container a {
+      flex: 1;
+      background-color: rgb(86, 86, 86);/* cor base (cinza) */
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      transition: opacity 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Classe para transparência */
+    .transparente {
+      opacity: 1;/* valor entre 0 (invisível) e 1 (opaco) */   
+    }
+
+    .transparente:hover {
+      opacity: 1;/* Ao passar o mouse aumenta a opacidade */      
+    }
+
+    .botoes-container img {
+      max-width: 80%;
+      max-height: 60px;
+      object-fit: contain;
+    }
+        .menu {
+      width: 220px;
+      background-color: #f1f1f100;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-right: 2px solid #cccccc00;
+    }
+    .musica {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .musica span {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .menu button {
+      padding: 8px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: #FFCC00;
+      color: rgb(44, 44, 44);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .menu button:hover {
+      background-color: #ffa600;
+      
+    }
+    /* Media Query para telas menores */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+        align-items: center;/* centraliza itens */
+      }
+
+      nav img.logo {
+        height: 60px;
+        margin-bottom: 10px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        justify-content: center;/* centraliza links na vertical */
+      }
+
+      nav ul li a {
+        font-size: 18px;
+        text-align: center; /* centraliza texto dos links */
+      }
+    }
+    .material-symbols-outlined {
+    font-size: 50px;
+    }
+
+    .card-text{
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 40px;
+      text-align: center;
+    }
+    h1{
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 40px;
+      text-align: center;
+      color: #ffa600;
+    } 
+    .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex: 1; /* faz o card-body ocupar todo espaço disponível */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* mantém título no topo e preço na parte inferior */
+}
+
+.card-body h1 {
+  text-align: center;
+  margin-top: auto; /* força o preço ir para baixo */
+}  
+  </style>
+
+   <nav><!-------------------------------------------------Nav inicio---------------------------------------------------------------------->  
+    <img src="logo_nome.svg" alt="Logo FD Store" class="logo" />
+    <ul>
+      <a class="navbar-brand" href="index.html">
+                <span class="material-symbols-outlined">home</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      <a class="navbar-brand" href="musicas.html">
+                <span class="material-symbols-outlined">music_cast</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      <a class="navbar-brand" href="RedesSociais.html">
+                <span class="material-symbols-outlined">language</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      <a class="navbar-brand" href="Loja.html">
+                <span class="material-symbols-outlined">store</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </ul>
+    <a class="navbar-brand" href="#" id="btn-carrinho">
+  <span class="material-symbols-outlined">shopping_cart</span>
+</a>
+  </nav><!-------------------------------------------------Nav fim----------------------------------------------------------------------------> 
+
+
+
+    <div class="container mt-4"><!-------------------abre a div dos cards dos produtos------------------------------------------------------------->
+
+        <div class="row g-4">
+
+
+            <div class="col-12 col-md-4"><!--------Produto 1 inicio------------------------------------------------------------------------>
+                <div class="card h-100"><!--h-100 deica os card do mesmo tamanho independente do tamanho da tela -->
+                    <img src="basicafem_FD.svg" class="card-img-top" alt="Camiseta básica feminina"><!--onde coloco a imagem-->
+                    <div class="card-body">
+                        <p class="card-text">Camiseta básica feminina</p>
+                        <h1 style="text-align: center;">R$ 49,90</h1><!--para deiaxr os textops alinhados style="text-align"-->
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto1">-</button>
+                        <input type="number" id="produto1" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto1">+</button>
+                    </div>
+                </div>
+            </div><!-------------------------------Produto 1 fim---------------------------------------------------------------------------->
+
+
+            <div class="col-12 col-md-4"><!--------Produto 2 inicio--------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="basicapreta_FD.svg" class="card-img-top" alt="Camiseta básica masculina">
+                    <div class="card-body">
+                        <p class="card-text">Camiseta básica masculina</p>
+                        <h1 style="text-align: center;">R$ 49,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto2">-</button>
+                        <input type="number" id="produto2" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto2">+</button>
+                    </div>
+                </div>
+            </div><!-------------------------------Produto 2 fim--------------------------------------------------------------------------->
+
+
+            <div class="col-12 col-md-4"><!--------Produto 3 inicio--------------------------------------------------------------------------->
+                <div class="card h-100" >
+                    <img src="Cangurumasc_FD.svg" class="card-img-top" alt="Canguru FD - Farol">
+                    <div class="card-body">
+                        <p class="card-text">Canguru FD - Farol</p>
+                        <h1 style="text-align: center;">R$ 99,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto3">-</button>
+                        <input type="number" id="produto3" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto3">+</button>
+                    </div>
+                </div>
+            </div><!-------------------------------Produto 3 fim--------------------------------------------------------------------------->
+
+
+            <div class="col-12 col-md-4"><!--------Produto 4 inicio-------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="moletonmasc_FD.svg" class="card-img-top" alt="Moleton FD - Farol">
+                    <div class="card-body">
+                        <p class="card-text">Moleton FD - Farol</p>
+                        <h1 style="text-align: center;">R$ 129,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto4">-</button>
+                        <input type="number" id="produto4" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto4">+</button>
+                    </div>
+                </div>
+            </div><!-------------------------------Produto 4 fim-------------------------------------------------------------------------->
+
+
+
+            <div class="col-12 col-md-4"><!--------Produto 5 inicio--------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="copotermico_FD.svg" class="card-img-top" alt="Copo térmico">
+                    <div class="card-body">
+                        <p class="card-text">Copo térmico</p>
+                        <h1 style="text-align: center;">R$ 99,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto5">-</button>
+                        <input type="number" id="produto5" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto5">+</button>
+                    </div>
+                </div>
+            </div><!-------------------------------Produto 5 fim--------------------------------------------------------------------------->
+
+
+            <div class="col-12 col-md-4"><!--------Produto 6 inicio---------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="garrafainox_FD.svg" class="card-img-top" alt="Garrafa térmica inox preta">
+                    <div class="card-body">
+                        <p class="card-text">Garrafa térmica inox preta</p>
+                        <h1 style="text-align: center;">R$ 44,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto6">-</button>
+                        <input type="number" id="produto6" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto6">+</button>
+                    </div>
+                </div>
+            </div><!-------------------------------Produto 6 fim---------------------------------------------------------------------------->
+
+
+
+            <div class="col-12 col-md-4"><!-------Produto 7 inicio---------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="Canecapretamasc_FD.svg" class="card-img-top" alt="Caneca FD">
+                    <div class="card-body">
+                        <p class="card-text">Caneca FD</p>
+                        <h1 style="text-align: center;">R$ 49,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto7">-</button>
+                        <input type="number" id="produto7" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto7">+</button>
+                    </div>
+                </div>
+            </div><!------------------------------Produto 7 fim---------------------------------------------------------------------------->
+
+
+
+            <div class="col-12 col-md-4"><!-------Produto 8 inicio---------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="bonepreto_FD.svg" class="card-img-top" alt="Bone FD preto">
+                    <div class="card-body">
+                        <p class="card-text">Bone FD preto</p>
+                        <h1 style="text-align: center;">R$ 49,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto8">-</button>
+                        <input type="number" id="produto8" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto8">+</button>
+                    </div>
+                </div>
+            </div><!------------------------------Produto 8 fim---------------------------------------------------------------------------->
+
+
+
+            <div class="col-12 col-md-4"><!------Produto 9 inicio----------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="bonebranco_FD.svg" class="card-img-top" alt="Bone FD branco">
+                    <div class="card-body">
+                        <p class="card-text">Bone FD branco</p>
+                        <h1 style="text-align: center;">R$ 49,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto9">-</button>
+                        <input type="number" id="produto9" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto9">+</button>
+                    </div>
+                </div>
+            </div><!-----------------------------Produto 9 fim----------------------------------------------------------------------------->
+
+
+
+            <div class="col-12 col-md-4"><!------Produto 10 inicio---------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="boneamarelo_FD.svg" class="card-img-top" alt="Bone FD amarelo">
+                    <div class="card-body">
+                        <p class="card-text">Bone FD amarelo</p>
+                        <h1 style="text-align: center;">R$ 49,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto10">-</button>
+                        <input type="number" id="produto10" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto10">+</button>
+                    </div>
+                </div>
+            </div><!-----------------------------Produto 10 fim---------------------------------------------------------------------------->
+
+
+
+            <div class="col-12 col-md-4"><!------Produto 11 inicio--------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="Agenda FD preta.svg" class="card-img-top" alt="Agenda preta FD">
+                    <div class="card-body">
+                        <p class="card-text">Agenda preta FD</p>
+                        <h1 style="text-align: center;">R$ 34,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto11">-</button>
+                        <input type="number" id="produto11" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto11">+</button>
+                    </div>
+                </div>
+            </div><!-----------------------------Produto 11 fim--------------------------------------------------------------------------->
+
+
+
+            <div class="col-12 col-md-4"><!------Produto 12 inicio--------------------------------------------------------------------------->
+                <div class="card h-100">
+                    <img src="Agenda FD amarela.svg" class="card-img-top" alt="Agenda amarela FD">
+                    <div class="card-body">
+                        <p class="card-text">Agenda amarela FD</p>
+                        <h1 style="text-align: center;">R$ 34,90</h1>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <button class="btn btn-outline-primary btn-diminuir" data-produto="produto12">-</button>
+                        <input type="number" id="produto12" class="form-control text-center mx-2 quantidade" value="0"
+                            min="0">
+                        <button class="btn btn-outline-primary btn-aumentar" data-produto="produto12">+</button>
+                    </div>
+                </div>
+            </div><!-----------------------------Produto 12 fim--------------------------------------------------------------------------->
+
+
+        </div>
+
+        <div class="card mt-4 p-3"><!--------------Total inicio------------------------------------------------------------------------------>
+            <h4  id="total" class="text-end mb-0 bebas-neue-regular">Total: R$ 0,00</h4>
+            <div class="text-end mt-3">
+                <button type="button" id="limparcarrinho" class="btn btn-outline-danger" >Limpar</button>
+                <button type="button" id="btn-comprar" class="btn btn-outline-success">Comprar</button>
+            </div>
+        </div><!-----------------------------------Total fim------------------------------------------------------------------------------>
+
+
+<!-----------------------------------------------------------Modal de compra inicio---------------------------------------------------------------------------------------->
+        <div id="resumo-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+    background-color: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+            <div
+                style="background-color:#ffc107; color:#000; padding:20px; border-radius:10px; max-width:500px; width:90%; text-align:left; position:relative;">
+                <button id="fechar-modal"
+                    style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:20px; cursor:pointer;">✖</button>
+                <pre id="resumo-texto" style="white-space: pre-wrap;"></pre>
+            </div>
+        </div>
+<!-----------------------------------------------------------Modal de compra fim---------------------------------------------------------------------------------------->
+    </div><!-----------------------------------------fecha as div dos cards dos produtos------------------------------------------------------------>
+  <!-----------------<footer>------------------------------------Rodapé inicio-------------------------<footer>---------------------------------->  
+  <footer class="text-white mt-5 py-4" style="margin: 0%;padding: 0%;background-color: #ffa600;">
+    <div class="container footer">
+      <div class="row">
+
+        <div class="col-md-4 bebas-neue-regular border-end border-black " style="font-size: 20px; text-align: center;"><!----------------------------Sobre a empresa inicio-------------------------------------------------------->
+          <h5 style="color: #000000;">Sobre nós</h5>
+        </br>
+          <p style="color: #000000; margin-left: 10px;">Somos apaixonados por transformar sentimentos em música. Nosso projeto nasceu para
+            compartilhar histórias, emoções e mensagens de esperança através de cada melodia. Aqui, cada acorde é
+            pensado para tocar o coração e inspirar quem nos escuta.</p>
+        </div><!--------------------------------------------Sobre a empresa fim-------------------------------------------------------->
+
+<!---------------------------------------------------------Links inicio------------------------------------------------------------->
+        <div class="col-md-4 bebas-neue-regular border-end border-black " style="font-size:20px; text-align: center;">
+          <h5 style="color: #000000;">Links úteis</h5>
+        </br>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-black">home</a></li>
+            <li><a href="musicas.html" class="text-black">Música</a></li>
+            <li><a href="RedesSociais.html" class="text-black">Redes Sociais</a></li>
+            <li><a href="Loja.html" class="text-black">Loja Oficial</a></li>
+          </ul>  
+  <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+    <a href="https://www.instagram.com/fabriciodiasreal/?hl=pt-br" target="_blank" rel="noopener noreferrer">       
+      <svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16" color="black">
+  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+      </svg>
+    </a>
+    <a href="https://www.facebook.com/fabriciodiasreal" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16" color="black">
+  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+      </svg>
+    </a>
+
+<a href="https://x.com/CantorFD" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16" color="black">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+    </svg>  
+</a>
+
+<a href="https://www.youtube.com/fabriciodiasoficial" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16" color="black">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+    </svg>
+</a>  
+<a href="https://www.tiktok.com/@fabriciodias_oficial" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16" color="black">
+  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+    </svg>
+</a>      
+  </div>   
+</div><!--------------------------------------------Links fim------------------------------------------------------------->
+
+
+
+<!------------------------------------------------------Contatos inicio----------------------------------------------------------->
+        <div class="bebas-neue-regular" style="flex: 1; font-size: 20px; text-align: center;">
+          <h5 style="color: #000000;">Contatos</h5>
+        </br>
+          <p style="color: #000000;">Email:contato@fabriciodiasoficial.bom.pr</p>
+          <p style="color: #000000;">Telefone: (51) 98765-43210</p>
+          <p style="color: #000000;">Porto Alegre - RS</p>
+        </div><!------------------------------------------Contatos fim----------------------------------------------------------->
+
+
+<!--------------------------------------------------Direitos autorais inicio------------------------------------------------------>      
+    <div class="text-center bebas-neue-regular" style="font-size:22px ;">
+      <p class="mb-0" style="color: #000000;">&copy; 2025 - Desenvolvido por Fabrício Dias | Todos os direitos
+        reservados | As ofertas
+        e produtos apresentados neste site são totalmente fictícios e destinados exclusivamente para fins
+        educacionais. Nenhuma informação aqui representa uma oferta real.</p>
+    </div><!------------------------------------------------Direitos autorais fim------------------------------------------------------>
+
+
+    </div>
+  </footer><!------<footer>------------------------------------Rodapé fim----------------------------<footer>------------------------------>
+
+
+
+
+
+    <script src="logicaFD.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
